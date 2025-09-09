@@ -1,26 +1,28 @@
+/* Tailwind v4 */
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Theme tokens */
+:root{
+  --bg:#0b0f14;
+  --card:#0f1720;
+  --ink:#e6edf3;
+  --muted:#94a3b8;
+  --accent:#22d3ee; /* cyan */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html,body{height:100%}
+body{
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at -10% -10%, #0e1726 0%, #0b0f14 45%) no-repeat,
+    var(--bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* little utility helpers */
+a{ @apply underline-offset-4 decoration-transparent hover:decoration-current transition; }
+.btn{
+  @apply inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium
+         ring-1 ring-white/10 hover:ring-white/20 hover:-translate-y-0.5 transition;
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+.btn-accent{ background: var(--accent); color:#001018; @apply ring-0 hover:brightness-110 }
+.card{ @apply rounded-xl bg-white/5 ring-1 ring-white/10 hover:ring-white/20 transition; }
+.grid-auto{ @apply grid gap-6 sm:grid-cols-2 lg:grid-cols-3 }
